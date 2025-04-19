@@ -20,7 +20,7 @@ async function SearchGrade(id) {
   results.innerHTML = ""; 
 
   try {
-    const response = await fetch('grade.json');
+    const response = await fetch('/grade.json');
     const data = await response.json();
 
     const student = data.find(student => student.id === id);
