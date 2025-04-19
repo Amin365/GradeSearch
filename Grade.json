@@ -1,0 +1,103 @@
+[
+    {
+      "name": "Ayaan Mohamed",
+      "id": "S001",
+      "class": "10A",
+      "grades": {
+        "Math": 85,
+        "English": 90,
+        "Science": 88
+      }
+    },
+    {
+      "name": "Layla Hassan",
+      "id": "S002",
+      "class": "10A",
+      "grades": {
+        "Math": 78,
+        "English": 85,
+        "Science": 80
+      }
+    },
+    {
+      "name": "Khadar Ali",
+      "id": "S003",
+      "class": "10B",
+      "grades": {
+        "Math": 92,
+        "English": 88,
+        "Science": 91
+      }
+    },
+    {
+      "name": "Fatima Noor",
+      "id": "S004",
+      "class": "10B",
+      "grades": {
+        "Math": 75,
+        "English": 70,
+        "Science": 68
+      }
+    },
+    {
+      "name": "Abdullahi Yusuf",
+      "id": "S005",
+      "class": "10C",
+      "grades": {
+        "Math": 89,
+        "English": 94,
+        "Science": 90
+      }
+    },
+    {
+      "name": "Nasteho Jama",
+      "id": "S006",
+      "class": "10C",
+      "grades": {
+        "Math": 83,
+        "English": 76,
+        "Science": 85
+      }
+    },
+    {
+      "name": "Yasir Ahmed",
+      "id": "S007",
+      "class": "10A",
+      "grades": {
+        "Math": 68,
+        "English": 73,
+        "Science": 70
+      }
+    },
+    {
+      "name": "Hodan Abdi",
+      "id": "S008",
+      "class": "10B",
+      "grades": {
+        "Math": 95,
+        "English": 98,
+        "Science": 97
+      }
+    },
+    {
+      "name": "Farhan Osman",
+      "id": "S009",
+      "class": "10C",
+      "grades": {
+        "Math": 80,
+        "English": 82,
+        "Science": 78
+      }
+    },
+    {
+      "name": "Zahra Ibrahim",
+      "id": "S010",
+      "class": "10A",
+      "grades": {
+        "Math": 87,
+        "English": 89,
+        "Science": 90
+      }
+    }
+  ]
+  
