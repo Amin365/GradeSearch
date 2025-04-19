@@ -82,3 +82,10 @@
     border: 1px solid greenyellow;
     transition: 3s;
   }
+
+  .valid{
+    border: 2px solid green;
+}
+.invalid{
+    border: 2px solid red;
+}

@@ -82,10 +82,10 @@ async function SearchGrade(id) {
     downloadGrades(student);
   });
     } else {
-      results.innerHTML = `<p>Student not found</p>`;
+      results.innerHTML = `<p class="container">Student not found</p>`;
     }
   } catch (error) {
-    results.innerHTML = `<p>Error loading student data</p>`;
+    results.innerHTML = `<p class="container ">Error loading student data</p>`;
     console.error("Error:", error);
   }
 }
@@ -121,3 +121,15 @@ function saveToLocalStorage(id) {
 }
 
 
+
+
+function SetError(element, message) {
+  element.classList.add('invalid')
+  element.classList.remove('valid')
+  error.textContent = message 
+}
+
+function Setsuccess(element) {
+  element.classList.add('valid')
+  element.classList.remove('invalid')
+}
