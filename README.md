@@ -21,8 +21,8 @@ A fully functional student grade lookup application built using **HTML**, **CSS*
 
 ## 📸 Preview
 
-![Student Grade App Screenshot](./screenshots/app-preview.png)
 
+![alt text](GradeSystem.JPG)
 ---
 
 ## 🧰 Tech Stack
