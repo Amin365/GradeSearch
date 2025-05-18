@@ -3,18 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-
+    <title>Home page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="style.css">
-    <title>Search Grade</title>
 </head>
 <body>
-<form action="" id="forminput">
+    <header class="headers">
+        <nav class="header-home">
+            <ul class="nav-links">
+  
+                <a href="home.html">Home</a>
+            <a href="About.html">About</a>
+            <a href="home.html">Service</a>
+            <a href="index.html">Grade</a>
+            </ul>
+          
+        </nav>
+    </header>
 
-    <input type="search" id="searchArea" placeholder="Enter Your Grade Here"><br>
-  <button  class="search">Search</button>
-</form>
-    <div class="result"></div>
-    <script src="GradeSerach.js"></script>
+    <section class="hero">
+        <div class="rightside">
+            <h3>Your academic progress, one click away.
+</h3>
+<button class="clickgrde"> Click to check Your Grade</button>
+
+        </div>
+<div class="images">
+    <img src="school.jpg" alt="">
+</div>
+    </section>
+
+    <section class="service">
+        
+        <div class="contests">
+        <h1 >Our services</h1>
+        </div>
+          <h2>Our services</h2>
+<div class="boxConatiner">
+
+    <div class="boxs">
+        <h1>Instant Grade Boost Analyzer</h1>
+        <p>Tells students how to improve their grades based on trends.</p>
+    </div>
+    <div class="boxs">
+        <h1>Progress Report Builder</h1>
+        <p>Download beautifully designed academic reports to share with parents or keep records.</p>
+    </div>
+    <div class="boxs">
+        <h1>Grade-to-Goal Planner
+</h1>
+<p>Set academic goals and get step-by-step suggestions to reach your target grades.
+
+</p>
+    </div>
+</div>
+    </section>
+
+         <div class="modal">
+    <div class="modal-content">
+      <span id="close-modal">&times;</span>
+
+      <div class="contents">
+        <i class="fa-solid fa-question"></i>
+ <h1>which one are You?</h1>
+
+ <div class="butons">
+     <button  class="btns studentbtn"> Student</button>
+    <button  class="btns teacherbtn"> Teacher</button>
+
+ </div>
+ <div class="username" id="userName">
+  <form id="loginForm">
+    <input type="text" placeholder="Enter your Username" class="inputValue">
+    <button type="submit" class="btns">Login</button>
+  </form>
+    
+ </div>
+   
+      </div>
+
+
+    </div>
+  </div>
+    <script src="./Scripts/app.js"></script>
 </body>
 </html>

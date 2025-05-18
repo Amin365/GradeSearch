@@ -435,3 +435,57 @@ transition: all 0.3s ease;
 .invalid::after{
     background-color: orange;
 }
+.contents{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 2rem;
+   margin: 6rem auto;
+}
+.contents h1{
+    font-size: 2.5rem;
+    color: white;
+    font-weight: 600;
+}
+.contents i{
+    font-size: 2rem;
+    color: white;
+    background-color: red;
+    border-radius: 50px;
+    width: 50px;
+    height: 50px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+    
+}
+.butons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+   
+}
+
+#userName input{
+    width: 100%;
+    padding: 6px 20px;
+    border: none;
+    border-radius: 5px;
+    margin-top: 1rem;
+    outline:none;
+    font-size:1rem;
+}
+#userName input:focus{
+    border:2px solid #d268cc;
+    background-color: #fff;
+}
+.btns:hover{
+    background-color: #d268cc;
+    color: white;
+    transition: all 0.3s ease;
+    transform: translateY(-6px);
+}
