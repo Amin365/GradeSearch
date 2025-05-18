@@ -1,149 +1,115 @@
 
 
----
+## 📚 Student Grade Management System
 
-# 📘 Student Grade Search App
+A web-based system that allows:
 
-A fully functional student grade lookup application built using **HTML**, **CSS**, and **JavaScript**, with JSON data handling, GPA calculation, and PDF export capability. Designed for both educational institutions and learning purposes.
-
----
-
-## 🚀 Features
-
-✅ Search student details by ID  
-✅ View student's Name, Class, and Subject-wise Grades  
-✅ GPA calculation based on subject grades  
-✅ Download grade report as a **PDF file**  
-✅ Save searched students in **LocalStorage**  
-✅ Responsive design & user-friendly interface
+* Students to **search for their grades**
+* Teachers to **register students and input grades**
+* Secure login with role-based redirection (Student or Teacher)
 
 ---
 
-## 📸 Preview
+### 🚀 Features
 
+#### 1. **Role-Based Login Modal**
 
-![alt text](GradeSystem.JPG)
+* Users choose between **Student** and **Teacher**
+* Input validation based on selected role
+* Redirects:
+
+  * **Students** → `GradeSearch.html`
+  * **Teachers** → `register.html`
+
+#### 2. **Student Grade Search (GradeSearch.html)**
+
+* Students can search for their grades by entering their **ID**
+* GPA is calculated dynamically based on subject scores
+* Detailed result includes:
+
+  * Student Name
+  * Class
+  * Grades (Math, English, Science)
+  * GPA
+* Option to **Download Grades as PDF**
+
+#### 3. **Teacher Grade Registration (register.html)**
+
+* Teachers can:
+
+  * Add new students and their grades
+  * Update existing student records
+  * Delete student records
+* Data is stored using **localStorage**
+* Inline **toast notifications** for success, error, update, and validation messages
+* Dynamic student table updates in real-time
+
 ---
 
-## 🧰 Tech Stack
+### 🧠 Technologies Used
 
-| Technology     | Description                          |
-|----------------|--------------------------------------|
-| HTML/CSS       | Structure and styling                |
-| JavaScript     | App logic, GPA, and PDF export       |
-| JSON           | Data source for student grades       |
-| jsPDF          | JavaScript library for PDF creation  |
-| LocalStorage   | Stores previously searched IDs       |
+* HTML5, CSS3, JavaScript (Vanilla)
+* `localStorage` for data persistence
+* [jsPDF](https://github.com/parallax/jsPDF) for PDF download
 
 ---
 
-## 📁 File Structure
+### 🗂 Folder Structure
 
-```bash
-student-grade-app/
+```
+project-root/
 │
-├── index.html            # Main webpage
-├── style.css             # Styling file
-├── script.js             # JavaScript functionality
-├── grade.json            # Mock student data
-├── README.md             # Project documentation
-└── /screenshots          # Optional screenshots directory
+├── index.html               // Main entry with role-based modal
+├── GradeSearch.html         // Student view to search grades
+├── register.html            // Teacher dashboard to manage grades
+├── js/
+│   ├── login.js             // Handles login modal and redirection
+│   ├── GradeSearch.js       // GPA calculation and PDF generation
+│   └── register.js          // Add, update, delete student grades
+├── css/
+│   └── style.css            // UI styles and toast notification styles
+└── README.md
 ```
 
 ---
 
-## 📦 Sample JSON Data
+### ✅ How to Use
 
-```json
-[
-  {
-    "id": "101",
-    "name": "Ahmed Ali",
-    "class": "10A",
-    "grades": {
-      "Math": 90,
-      "English": 85,
-      "Science": 88
-    }
+1. **Open `index.html`** in your browser.
+2. Click on "Grade Access" to open the modal.
+3. Select your role:
+
+   * If **Student** → type `student` and click Login
+   * If **Teacher** → type `teacher` and click Login
+4. Redirected accordingly:
+
+   * **Students** search by ID to view their grades and GPA
+   * **Teachers** can manage student data
+
+---
+
+### 🔐 Role Authentication Logic
+
+```js
+if (inputValue === currentRole) {
+  if (currentRole === "student") {
+    window.location.href = 'GradeSearch.html';
+  } else if (currentRole === "teacher") {
+    window.location.href = 'register.html';
   }
-]
-```
-
----
-
-## 🧠 GPA Calculation Logic
-
-GPA = (Math + English + Science) / 3  
-GPA is rounded to **2 decimal places** using `.toFixed(2)` in JavaScript.
-
-```js
-const grades = Object.values(student.grades);
-const sum = grades.reduce((a, b) => a + b, 0);
-const gpa = (sum / grades.length).toFixed(2);
-```
-
----
-
-## 📥 PDF Download Feature
-
-Uses **jsPDF** to create a downloadable grade report:
-
-```js
-const doc = new jsPDF();
-doc.text("Student Grade Report", 20, 10);
-doc.text(`Name: ${student.name}`, 20, 30);
-doc.save(`${student.name}_grades.pdf`);
-```
-
----
-
-## 💾 LocalStorage Use
-
-Previously searched IDs are stored in `localStorage` to auto-load data when the page reloads. Prevents duplicates using `.includes(id)` check.
-
-```js
-const stored = JSON.parse(localStorage.getItem('searchHistory')) || [];
-if (!stored.includes(id)) {
-  stored.push(id);
-  localStorage.setItem('searchHistory', JSON.stringify(stored));
+} else {
+  alert('Invalid username for selected role');
 }
 ```
 
 ---
 
-## 🛠️ How to Run the App
+### 📝 Notes
 
-1. Clone the repo or download ZIP.
-2. Make sure `grade.json` is in the same folder.
-3. Open `index.html` in your browser.
-4. Enter a valid student ID like `101`, `102`, etc.
-5. View grades, GPA, and download the report.
-
----
+* All student data is stored locally in the browser using `localStorage`
+* Data will be cleared if browser storage is cleared
+* The system is designed for educational or demonstration purposes
 
 
 
-## 👤 Author
-
-**Mohamed Bashiir**  
-Student | Developer   
-📧 aminbashir07@gmial.com
-
----
-
-## 🤝 Contributions
-
-If you'd like to contribute:
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature-name`)
-3. Commit your changes
-4. Push to the branch (`git push origin feature-name`)
-5. Open a Pull Request
-
----
-
-
-
----
 
