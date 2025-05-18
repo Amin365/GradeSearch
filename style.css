@@ -89,3 +89,142 @@
 .invalid{
     border: 2px solid red;
 }
+.nav-links{
+  display: flex;
+  gap: 3rem;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+  margin-left: 10rem;
+  
+}
+.nav-links a{
+  text-decoration: none;
+  font-size: 1.5rem;
+  color: black;
+  font-weight: 600;
+  padding: 0 10px;
+ 
+  &:hover{
+    text-decoration: underline;
+   
+  }
+}
+.headers{
+box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 
+            0 1px 3px rgba(0, 0, 0, 0.08);
+            height: 3rem;
+            width: 100%;
+
+
+}
+.header-home{
+  max-width: 1110px;
+  margin-inline: auto;
+  width: 600px;
+
+ 
+}
+.hero{
+  display: flex;
+  gap: 4rem;
+  margin-top: 4rem;
+  justify-content: center;
+  align-items: center;
+    max-width: 1110px;
+  margin-inline: auto;
+  width: 800px;
+  margin-right: 2rem;
+}
+.rightside h3{
+  text-align: center;
+  font-size: 2rem;
+  line-height: 2.5rem;
+ 
+}
+.rightside{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+.rightside button{
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  background-color: #d268cc;
+  color: white;
+ transition: all 0.3s ease
+
+}
+.rightside button:hover{
+  transform: translateY(-6px);
+}
+
+.images img{
+  width: 400px;
+  height: 400px;
+}
+
+.boxConatiner {
+  display: grid;
+   max-width: 1110px;
+  margin-inline: auto;
+  width: 800px;
+  grid-template-columns: repeat(3,1fr);
+  gap:1.5rem;
+  margin-top: 3rem;
+
+}
+
+.boxs{
+box-shadow: 0px 0px  6px   rgba(0,0,0,0.8);
+width: 350px;
+height: 100px;
+padding: 10px 20px;
+border: 1px solid #d268cc;
+display: flex;
+gap: 1rem;
+flex-direction: column;
+
+p{
+  text-align: center;
+}
+}
+.boxs:hover{
+    transform: translateY(-6px);
+    transition:all 0.4s ease
+}
+
+.contests{
+  max-width: 1110px;
+  margin-inline:auto;
+  width:800px;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  
+  margin-right: 2rem;
+
+}
+
+.contests h1{
+
+  color: color-mix(in srgb, #333 10%, transparent);
+ font-size: 2.5rem;
+ margin-bottom:-11rem ;
+
+}
+.service h2{
+    max-width: 1110px;
+  margin-inline:auto;
+  width:800px;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  margin-top:5rem ;
+  margin-right: 2rem;
+   font-size: 2.5rem;
+  font-weight: 600;
+
+}

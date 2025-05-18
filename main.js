@@ -97,14 +97,14 @@ async function downloadGrades(student) {
   
     let content = `
 
-   
+  
   Name: ${student.name}
   Class: ${student.class}
   
   Grades:
-  - Math: ${student.grades.Math}
-  - English: ${student.grades.English}
-  - Science: ${student.grades.Science}
+   Math: ${student.grades.Math}
+  English: ${student.grades.English}
+   Science: ${student.grades.Science}
   `;
   
     doc.text(content, 10, 10);
