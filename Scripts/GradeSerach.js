@@ -55,7 +55,7 @@ function SearchGrade(id) {
     });
 
   } else {
-    results.innerHTML = `<p class="container">Student not found</p>`;
+    results.innerHTML = `<p class="containe">Student not found</p>`;
   }
 }
 
