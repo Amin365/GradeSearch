@@ -107,6 +107,16 @@ function displayStudentRow(student, index) {
     <td>${student.grades.math}</td>
     <td>${student.grades.English}</td>
     <td>${student.grades.Science}</td>
+   <td>${parseInt(student.grades.math) + parseInt(student.grades.English) + parseInt(student.grades.Science)}</td>
+<td>${(
+    (parseInt(student.grades.math) + parseInt(student.grades.English) + parseInt(student.grades.Science)) / 3
+).toFixed(2)}</td>
+<td>${
+   ((parseInt(student.grades.math) + parseInt(student.grades.English) + parseInt(student.grades.Science)) / 3) >= 50
+   ? 'Pass' : 'Fail'
+}</td>
+
+
     <td><button class="delete">Delete</button></td>
     <td><button class="update">Update</button></td>
   `;
@@ -121,7 +131,7 @@ function displayStudentRow(student, index) {
   });
 }
 
-// Set form for update
+
 function prepareUpdate(student) {
   document.querySelector('#name').value = student.name;
   document.querySelector('#id').value = student.id;
@@ -166,3 +176,41 @@ function deleteStudent(id) {
     newEl.remove();
   }, 3000);
 }
+
+
+const TogelMode = document.querySelector('.togle-mode');
+
+// On click, toggle mode
+TogelMode.addEventListener('click', () => {
+  switchModel();
+});
+
+function switchModel() {
+  document.body.classList.toggle('dark-mode');
+  TogelMode.classList.toggle('dark-mode');
+
+  if (document.body.classList.contains('dark-mode')) {
+    TogelMode.innerHTML = `<i class="fa-solid fa-sun"></i>`;
+    localStorage.setItem('mode', 'dark');  // Save as dark
+  } else {
+    TogelMode.innerHTML = `<i class="fa-solid fa-moon"></i>`;
+    localStorage.setItem('mode', 'light'); // Save as light ✅ FIXED HERE
+  }
+}
+
+// On page load, set saved mode
+window.addEventListener('DOMContentLoaded', () => {
+  const savedMode = localStorage.getItem('mode');
+
+  if (savedMode === 'dark') {
+    document.body.classList.add('dark-mode');
+    TogelMode.classList.add('dark-mode');
+    TogelMode.innerHTML = `<i class="fa-solid fa-sun"></i>`;
+  } else {
+    // Light mode is default
+    document.body.classList.remove('dark-mode');
+    TogelMode.classList.remove('dark-mode');
+    TogelMode.innerHTML = `<i class="fa-solid fa-moon"></i>`;
+  }
+});
+

@@ -81,5 +81,45 @@ window.addEventListener('load', () => {
     },
   });
 
+const TogelMode = document.querySelector('.togle-mode');
+
+// On click, toggle mode
+TogelMode.addEventListener('click', () => {
+  switchModel();
+});
+
+function switchModel() {
+  document.body.classList.toggle('dark-mode');
+  TogelMode.classList.toggle('dark-mode');
+
+  if (document.body.classList.contains('dark-mode')) {
+    TogelMode.innerHTML = `<i class="fa-solid fa-sun"></i>`;
+    localStorage.setItem('mode', 'dark');  // Save as dark
+  } else {
+    TogelMode.innerHTML = `<i class="fa-solid fa-moon"></i>`;
+    localStorage.setItem('mode', 'light'); // Save as light ✅ FIXED HERE
+  }
+}
+
+// On page load, set saved mode
+window.addEventListener('DOMContentLoaded', () => {
+  const savedMode = localStorage.getItem('mode');
+
+  if (savedMode === 'dark') {
+    document.body.classList.add('dark-mode');
+    TogelMode.classList.add('dark-mode');
+    TogelMode.innerHTML = `<i class="fa-solid fa-sun"></i>`;
+  } else {
+    // Light mode is default
+    document.body.classList.remove('dark-mode');
+    TogelMode.classList.remove('dark-mode');
+    TogelMode.innerHTML = `<i class="fa-solid fa-moon"></i>`;
+  }
+});
+ 
 
   
+
+
+
+
