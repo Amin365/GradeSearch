@@ -95,7 +95,7 @@
   justify-content: space-between;
   align-items: center;
   margin-top: 1rem;
-  margin-left: 10rem;
+  
   
 }
 .nav-links a{
@@ -134,7 +134,7 @@ box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1),
     max-width: 1110px;
   margin-inline: auto;
   width: 800px;
-  margin-right: 2rem;
+  
 }
 .rightside h3{
   text-align: center;
@@ -174,14 +174,14 @@ box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1),
   grid-template-columns: repeat(3,1fr);
   gap:1.5rem;
   margin-top: 3rem;
-  margin-left: 5rem;
+
 
 }
 
 .boxs{
 box-shadow: 0px 0px  6px   rgba(0,0,0,0.8);
- width: 350px;
-height: 100px; 
+ width: 300px;
+height: 180px; 
 padding: 10px 20px;
 border: 1px solid #d268cc;
 display: flex;
@@ -189,10 +189,21 @@ gap: 1rem;
 flex-direction: column;
 
 
-p{
+
+}
+.boxs h1{
+  font-size: 1.5rem;
+  color: #333;
+  font-weight: 600;
   text-align: center;
 }
+.boxs p{
+  font-size: 1rem;
+  color: #333;
+  font-weight: 400;
+  text-align: center;
 }
+
 .boxs:hover{
     transform: translateY(-6px);
     transition:all 0.4s ease
@@ -206,6 +217,68 @@ p{
   justify-content: center;
   align-items: center;
   
+
+
+}
+@media (max-width: 768px) {
+  .boxConatiner {
+    grid-template-columns:   1fr;
+    gap: 1rem;
+  
+  }
+  .boxs{
+width: 400px;
+height: 180px;
+margin-left:10rem;
+
+
+  }
+  .boxs:hover{
+    transform: translateY(-6px);
+    transition:all 0.4s ease
+}
+.rightside:hover{
+  transform: translateY(-6px);
+    transition:all 0.4s ease
+}
+ 
+  .boxs h1{
+    font-size: 1.5rem;
+    color: #333;
+    font-weight: 600;
+    text-align: center;
+  }
+ .boxs p{
+    font-size: 1.2rem;
+    color: #333;
+    font-weight: 400;
+    text-align: center;
+  }
+  .hero {
+    flex-direction: column;
+    align-items: center;
+    
+  }
+  .hero .rightside {
+    width: 100%;
+    max-width: 400px;
+  }
+  .modal-content{
+    width: 100%;
+    max-width: 400px;
+    margin-top: 8rem;
+  }
+  .contents{
+    width: 100%;
+    max-width: 400px;
+    
+  }
+  .header-home{
+    display: none;
+  }
+  .headers{
+    width: 500px;
+  }
 
 
 }
@@ -488,4 +561,125 @@ transition: all 0.3s ease;
     color: white;
     transition: all 0.3s ease;
     transform: translateY(-6px);
+}
+
+.testimonials{
+    max-width: 1110px;
+    margin-inline:auto;
+    width:850px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin-top:5rem ;
+   flex-direction: column;
+
+   
+}
+.testimonials-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 3rem;
+}
+.image img{
+    width: 80px;
+    height: 80px;
+    border-radius: 50px;
+    box-shadow: 0px 0px  6px   rgba(0,0,0,0.8);
+}
+.image{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   gap: 10px;
+  
+   
+  
+
+}
+.testimonial{
+    width: 300px;
+    height: 200px;
+    box-shadow: 0px 0px  6px   rgba(0,0,0,0.8);
+    padding: 25px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background-color: #fff;
+    border-radius: 10px;
+    transition: all 0.3s ease;   
+}
+
+.testimonial:hover{
+    transform: translateY(-6px);
+    transition: all 0.3s ease;
+}
+.image h3{
+    font-size: 1rem;
+    color: #333;
+    font-weight: 600;
+    text-align: center;
+
+}
+
+.swiper-slide img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+}
+.contentss{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 2rem;
+   margin: 6rem auto;
+   text-align: center;
+ 
+}
+.contentss h1{
+    font-size: 2.5rem;
+    font-weight: 600;
+}
+.contentss p{
+    font-size: 1.2rem;
+    color: #333;
+    font-weight: 400;
+    width: 70%;
+
+}
+.trusted{
+  max-width: 1100px;
+  margin-inline: auto;
+  width: 800px;
+  text-align: center;
+  
+}
+
+@media (max-width: 768px) {
+    .trusted{
+        width: 100%;
+        max-width: 400px;
+    }
+    .trusted h1{
+        font-size: 2rem;
+    }
+    .trusted p{
+        font-size: 1rem;
+    }
+    .testimonials-container{
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .testimonial{
+        width: 100%;
+        max-width: 400px;
+    }
+    .contentss{
+        width: 100%;
+        max-width: 400px;
+        margin:  5rem auto;
+       
+    }
 }

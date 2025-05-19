@@ -70,3 +70,16 @@ window.addEventListener('load', () => {
   modal.style.display = 'none';
   currentRole = '';
 });
+
+ var swiper = new Swiper(".mySwiper", {
+    slidesPerView: 4,        
+    spaceBetween: 20,         
+    loop: true,               
+    autoplay: {
+      delay: 2000,
+      disableOnInteraction: false,
+    },
+  });
+
+
+  
