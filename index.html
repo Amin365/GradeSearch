@@ -1,155 +1,180 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Home page</title>
-  
-  <!-- External Stylesheets -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="style.css"/>
-</head>
-
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
- <div class="togle-mode">
-  <i class="fa-solid fa-moon"></i>
-</div>
-  <!-- Header -->
-  <header class="headers">
-    <nav class="header-home">
-      <ul class="nav-links">
-        <a href="home.html">Home</a>
-        <a href="About.html">About</a>
-        <a href="home.html">Service</a>
-        <a href="index.html">Grade</a>
-      </ul>
-    </nav>
- 
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- External Stylesheets -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <title>Academic Portal</title>
+  </head>
 
+  <body class="bg-gray-50">
 
+    <!-- Header Section -->
+    <header class="p-5 shadow-lg bg-white">
+      <nav class="max-w-6xl mx-auto flex justify-between items-center hidden md:flex">
+        <ul class="flex flex-wrap justify-center space-x-10 md:space-x-20 mx-auto">
+          <li><a href="home.html" class="text-xl text-black font-bold">Home</a></li>
+          <li><a href="About.html" class="text-xl text-black font-bold">About</a></li>
+          <li><a href="home.html" class="text-xl text-black font-bold">Service</a></li>
+          <li><a href="index.html" class="text-xl text-black font-bold">Grade</a></li>
+        </ul>
+      </nav>
+    </header>
 
-  </header>
-
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="rightside">
-      <h3>Your academic progress, one click away.</h3>
-      <button class="clickgrde">Click to check Your Grade</button>
-    </div>
-    <div class="images">
-      <img src="school.jpg" alt="School Image">
-    </div>
-  </section>
-
-  <!-- Services Section -->
-  <section class="service">
-    <div class="contests">
-      <h1>Our services</h1>
-    </div>
-    <h2>Our services</h2>
-    <div class="boxConatiner">
-      <div class="boxs">
-        <h1>Student Grade Submission Panel</h1>
-        <p>A secure and easy-to-use interface where teachers can input and manage student grades for each subject and exam.</p>
+    <!-- Hero Section -->
+    <section class="flex flex-col-reverse md:flex-row items-center justify-between p-10 max-w-6xl mx-auto w-full">
+      <div class="flex flex-col items-center space-y-5 w-full md:w-1/3 text-center">
+        <h3 class="text-2xl font-bold mb-2">Your academic progress, one click away.</h3>
+        <button class="clickgrde bg-purple-500 text-white px-4 py-3 mt-3 rounded-full hover:bg-purple-600 transition duration-300 ease hover:scale-105 hover:-translate-y-2">
+          Click to check Your Grade
+        </button>
       </div>
-      <div class="boxs">
-        <h1>Downloadable Grade Reports Service</h1>
-        <p>Enables students and parents to download printable progress reports, transcripts, and exam summaries in PDF format.</p>
-      </div>
-      <div class="boxs">
-        <h1>Performance Analytics Dashboard</h1>
-        <p>Provides students with detailed charts, trends, and performance summaries to help them understand their academic progress.</p>
-      </div>
-    </div>
-  </section>
 
-  <!-- Modal -->
-  <div class="modal">
-    <div class="modal-content">
-      <span id="close-modal">&times;</span>
-      <div class="contents">
-        <i class="fa-solid fa-question"></i>
-        <h1>Which one are you?</h1>
-        <div class="butons">
-          <button class="btns studentbtn">Student</button>
-          <button class="btns teacherbtn">Teacher</button>
-        </div>
-        <div class="username" id="userName">
-          <form id="loginForm">
-            <input type="text" placeholder="Enter your Username" class="inputValue" />
-            <button type="submit" class="btns">Login</button>
-          </form>
+      <div class="w-full md:w-1/2 mb-6 md:mb-0 flex justify-center">
+        <img src="school.jpg" alt="School Image" class="max-w-full h-auto rounded-lg" />
+      </div>
+    </section>
+
+    <!-- Our Services -->
+    <section class="py-10">
+      <div class="max-w-6xl mx-auto px-4">
+        <h1 class="text-3xl font-bold text-center mb-8">Our Services</h1>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 ease hover:scale-105 hover:-translate-y-2">
+            <h2 class="text-xl font-semibold mb-4">Student Grade Submission Panel</h2>
+            <p class="text-gray-500 text-center">A secure and easy-to-use interface where teachers can input and manage student grades for each subject and exam.</p>
+          </div>
+          <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 ease hover:scale-105 hover:-translate-y-2">
+            <h2 class="text-xl font-semibold mb-4">Downloadable Grade Reports</h2>
+            <p class="text-gray-500 text-center">Enables students and parents to download printable progress reports, transcripts, and exam summaries in PDF format.</p>
+          </div>
+          <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 ease hover:scale-105 hover:-translate-y-2">
+            <h2 class="text-xl font-semibold mb-4">Real-time Grade Updates</h2>
+            <p class="text-gray-500 text-center">Provides instant updates on student grades, allowing parents and students to track academic performance in real-time.</p>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
+    </section>
 
-  <!-- Testimonials -->
-  <div class="testimonials">
-    <h1>What Our Users Say</h1>
-    <div class="testimonials-container">
-      <div class="testimonial">
-        <p>"This platform has transformed the way I track my academic progress. Highly recommended!"</p>
-        <div class="image">
-          <img src="https://plus.unsplash.com/premium_photo-1682096181675-12f8293cd31e?w=600" alt="">
-          <h3>Amina Mohamed – Student</h3>
+    <!-- Testimonials -->
+    <div class="mt-20">
+      <h1 class="text-center mb-20 font-bold text-3xl">What Our Users Say</h1>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto px-4">
+        <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 ease hover:scale-105 hover:-translate-y-2">
+          <p class="text-base text-gray-900 mx-2 py-4">"This platform has transformed the way I track my academic progress. Highly recommended!"</p>
+          <div class="flex items-center space-x-4 mt-4">
+            <img src="https://plus.unsplash.com/premium_photo-1682096181675-12f8293cd31e?w=600" class="w-16 h-16 rounded-full" alt="Amina">
+            <h3 class="font-bold">Amina Mohamed – Student</h3>
+          </div>
         </div>
-      </div>
-      <div class="testimonial">
-        <p>"As a teacher, I find this system incredibly efficient for managing grades and providing feedback."</p>
-        <div class="image">
-          <img src="https://plus.unsplash.com/premium_photo-1682096181675-12f8293cd31e?w=600" alt="">
-          <h3>Mr. Abdi Osman – Math Teacher</h3>
+        <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 ease hover:scale-105 hover:-translate-y-2">
+          <p class="text-base text-gray-900 mx-2 py-4">"As a teacher, I find this system incredibly efficient for managing grades and providing feedback."</p>
+          <div class="flex items-center space-x-4 mt-4">
+            <img src="https://plus.unsplash.com/premium_photo-1682096181675-12f8293cd31e?w=600" class="w-16 h-16 rounded-full" alt="Mr. Abdi">
+            <h3 class="font-bold">Mr. Abdi Osman – Math Teacher</h3>
+          </div>
         </div>
-      </div>
-      <div class="testimonial">
-        <p>"The downloadable reports feature is a game-changer for parents. I can easily keep track of my child's performance."</p>
-        <div class="image">
-          <img src="https://plus.unsplash.com/premium_photo-1682096181675-12f8293cd31e?w=600" alt="">
-          <h3>Fatima Ali – Parent</h3>
+        <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 ease hover:scale-105 hover:-translate-y-2">
+          <p class="text-base text-gray-900 mx-2 py-4">"The downloadable reports feature is a game-changer for parents. I can easily keep track of my child's performance."</p>
+          <div class="flex items-center space-x-4 mt-4">
+            <img src="https://plus.unsplash.com/premium_photo-1682096181675-12f8293cd31e?w=600" class="w-16 h-16 rounded-full" alt="Fatima">
+            <h3 class="font-bold">Fatima Ali – Parent</h3>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-<!-- trusted schools -->
- <section class="trusted">
-    <div class="contentss">
-        <h1>Trusted by Leading Schools</h1>
-        <p>Our platform is trusted by numerous educational institutions, ensuring a reliable and efficient way to manage student grades.</p>
+
+    <!-- Trusted Schools -->
+    <section class="py-20">
+      <div class="text-center mb-10">
+        <h1 class="text-3xl font-bold mb-5 ">Trusted by Leading Schools</h1>
+        <p class="text-gray-600">Our platform is trusted by numerous educational institutions, ensuring a reliable and efficient way to manage student grades.</p>
       </div>
 
-  <!-- Swiper Section -->
-  <div class="swiper mySwiper ">
-    <div class="swiper-wrapper">
-      <div class="swiper-slide">
-        <img src="https://img.freepik.com/premium-vector/education-logo-universities-colleges_946352-168.jpg?uid=R199319461&ga=GA1.1.1552206245.1741415107&semt=ais_hybrid&w=740" alt="">
+      <!-- Swiper Section -->
+      <div class="swiper mySwiper max-w-6xl mx-auto grid grid-cols-3 md:grid-cols-4 gap-4">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide flex justify-center">
+            <img src="https://img.freepik.com/premium-vector/education-logo-universities-colleges_946352-168.jpg" alt="" class="w-40 h-40 rounded-full" />
+          </div>
+          <div class="swiper-slide flex justify-center">
+            <img src="https://img.freepik.com/premium-vector/education-logo-school-badge-design-template_731136-256.jpg" alt="" class="w-40 h-40 rounded-full" />
+          </div>
+          <div class="swiper-slide flex justify-center">
+            <img src="https://img.freepik.com/premium-vector/education-logo-design-template-school-organization_731136-340.jpg" alt="" class="w-40 h-40 rounded-full" />
+          </div>
+          <div class="swiper-slide flex justify-center">
+            <img src="https://img.freepik.com/free-vector/gradient-school-logo-design-template_23-2149664347.jpg" alt="" class="w-40 h-40 rounded-full" />
+          </div>
+          <div class="swiper-slide flex justify-center">
+            <img src="https://img.freepik.com/free-vector/hand-drawn-feather-high-school-logo_23-2149689299.jpg" alt="" class="w-40 h-40 rounded-full" />
+          </div>
+        </div>
       </div>
-      <div class="swiper-slide">
-        <img src="https://img.freepik.com/premium-vector/education-logo-school-badge-design-template_731136-256.jpg?uid=R199319461&ga=GA1.1.1552206245.1741415107&semt=ais_hybrid&w=740" alt="">
-      </div>
-      <div class="swiper-slide">
-        <img src="https://img.freepik.com/free-vector/gradient-high-school-logo-design_23-2149626935.jpg?uid=R199319461&ga=GA1.1.1552206245.1741415107&semt=ais_hybrid&w=740" alt="">
-      </div>
-      <div class="swiper-slide">
-        <img src="https://img.freepik.com/premium-vector/education-logo-design-template-school-organization_731136-340.jpg?uid=R199319461&ga=GA1.1.1552206245.1741415107&semt=ais_hybrid&w=740" alt="">
-      </div>
-      <div class="swiper-slide">
-        <img src="https://img.freepik.com/free-vector/gradient-school-logo-design-template_23-2149664347.jpg?uid=R199319461&ga=GA1.1.1552206245.1741415107&semt=ais_hybrid&w=740" alt="">
-      </div>
-      <div class="swiper-slide">
-        <img src="        https://img.freepik.com/free-vector/hand-drawn-feather-high-school-logo_23-2149689299.jpg?uid=R199319461&ga=GA1.1.1552206245.1741415107&semt=ais_hybrid&w=740
-" alt="">
-      </div>
+    </section>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="main.js"></script>
+
+    <!-- footer -->
+
+    
+    <footer class="bg-gray-800 text-white py-6 mt-20">
+
+        <div class="grid grid-cols-1 gap-4 max-w-6xl mx-auto md:grid-cols-4 ">
+            <div class="flex flex-col  gap-3 mt-4 w-50  text-center md:text-none mx-auto md:max-w-6xl">
+                
+                <h1 class="mb-4 text-2xl font-bold ">GradeSystem</h1>
+                <p class="text-gray-400">A comprehensive platform for managing student grades, providing real-time updates, and generating downloadable reports.</p>
+            </div>
+            <!-- quiclinks -->
+             
+            <div class="flex justify-center text-center e mt-4">
+        
+                <ul class="space-x-4">
+                    <h1 class="mb-4 text-2xl font-bold">Quick Links</h1>
+                    <li><a href="#" class="text-gray-400 hover:text-white">Home</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white">About</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white">Services</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white">Contact</a></li>
+                </ul>
+        </div>
+        <!-- leggal -->
+            <div class="flex justify-center mt-4 text-center">
+                <ul class="space-x-4">
+                    <h1 class="mb-4 text-2xl font-bold">Legal</h1>
+                    <li><a href="#" class="text-gray-400 hover:text-white">Privacy Policy</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white">Terms of Service</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white">Disclaimer</a></li>
+                </ul>
+                </div>
+                <!-- connects -->
+            <div class="flex justify-center mt-4 text-center">
+                <ul class="space-x-4">
+                    <h1 class="mb-4 text-2xl font-bold">Connect</h1>
+                    <li><a href="#" class="text-gray-400 hover:text-white">Facebook</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white">Twitter</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white">LinkedIn</a></li>
+                </ul>
+                </div>
+
     </div>
-  </div>
- </section>
- 
-
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
- 
-  <script src="./Scripts/Login.js"></script>
-
-</body>
+        <div class="max-w-6xl mx-auto text-center flex flex-col mt-10 justify-center">
+        <p>&copy; 2023 GradeSystem. All rights reserved.</p>
+        <div class="flex justify-center space-x-4 mt-4">
+            <a href="#" class="text-gray-400 hover:text-white"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#" class="text-gray-400 hover:text-white"><i class="fa-brands fa-twitter"></i></a>
+            <a href="#" class="text-gray-400 hover:text-white"><i class="fa-brands fa-linkedin"></i></a>
+        </div>
+        </div>
+    </footer>
+  </body>
 </html>
