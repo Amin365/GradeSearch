@@ -18,6 +18,9 @@ document.addEventListener("DOMContentLoaded", function () {
   reloadTable();
 });
 
+window.addEventListener("DOMContentLoaded", () => { 
+  reloadTable();})
+
 // UI Toggles
 const gradesBtn = document.querySelector('.Grade');
 const registersection = document.querySelector('.register');
@@ -267,8 +270,7 @@ function deleteStudent(id) {
 
 
 
-
-// Grade View Table
+  
 const view = document.querySelector('.view');
 const viewbody = document.querySelector('.view-body');
 

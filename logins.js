@@ -32,6 +32,16 @@ const users = JSON.parse(localStorage.getItem('users')) || [];
 loginForm.addEventListener('submit', (event) => {
   event.preventDefault();
   console.log('hello')
+  const amin = 'amin'; // Assuming 'amin' is the admin username
+  if (!inputValue.value.trim()) {
+    alert('Please enter a username!');
+    return;
+  }
+  if (inputValue.value.trim().toLowerCase() === amin) {
+    window.location.href = 'Teacher.html'; // Redirect to admin page
+    return;
+  }
+  
   const inputValues = inputValue.value.trim().toLowerCase();
   const user = users.find(u => u.name.toLowerCase() === inputValues);
   if (!user) {
@@ -42,7 +52,10 @@ loginForm.addEventListener('submit', (event) => {
     window.location.href = 'student.html';  // Assuming students go to student.html
   } else if (user.role === 'teacher') {
     window.location.href = 'Teacher.html';
-  } else {
-    alert('Unknown role for this user.');
+  } else if(inputValues===amin){
+    window.location.href = 'Teacher.html';
+  }else {
+    alert('Invalid role!');
   }
 });
+
