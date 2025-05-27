@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Teacher Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+  <!-- Font Awesome CDN -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+<body class="bg-gray-100">
+
+  <!-- Responsive Layout -->
+  <div class="flex flex-col md:flex-row min-h-screen">
+
+    <!-- Sidebar -->
+    <aside class="bg-gray-800 text-white w-full md:w-1/5 p-5">
+      <h2 class="text-2xl font-bold mb-10">Teacher Dashboard</h2>
+      <ul class="space-y-4">
+        <li><a href="#" class="flex items-center gap-2 hover:text-gray-400 Homes"><i class="fa-solid fa-house"></i> Home</a></li>
+        <li><a href="#" class="flex items-center gap-2 hover:text-gray-400 Grade"><i class="fa-solid fa-user-gear"></i> Manage Students</a></li>
+        <li><a href="#" class="flex items-center gap-2 hover:text-gray-400 userStudent"><i class="fa-solid fa-user-gear"></i> Add Students</a></li>
+        <li><a href="#" class="flex items-center gap-2 hover:text-gray-400 ViewGrade "><i class="fa-solid fa-eye "></i> View Grades</a></li>
+        <li><a href="#" class="flex items-center gap-2 hover:text-gray-400"><i class="fa-solid fa-cog"></i> Settings</a></li>
+        <li><a href="#" class="flex items-center gap-2 hover:text-gray-400 login"><i class="fa-solid fa-right-from-bracket"></i> Logout</a></li>
+      </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="w-full md:w-4/5 p-6  ">
+      <h1 class="text-3xl font-bold mb-5">Welcome, Teacher!</h1>
+      <p class="mb-5">Here you can manage your students and view their grades.</p>
+
+      <!-- Stats Cards -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 hero">
+        <div class="bg-white p-5 rounded shadow">
+          <h2 class="text-xl font-semibold mb-3">Total Students</h2>
+          <p class="text-2xl font-bold listStudent">0</p>
+        </div>
+        <div class="bg-white p-5 rounded shadow">
+          <h2 class="text-xl font-semibold mb-3">Total Subjects</h2>
+          <p class="text-2xl font-bold subjects">0</p>
+        </div>
+        <div class="bg-white p-5 rounded shadow">
+          <h2 class="text-xl font-semibold mb-3">Passed Students</h2>
+          <p class="text-2xl font-bold mark">0</p>
+        </div>
+        <div class="bg-white p-5 rounded shadow">
+          <h2 class="text-xl font-semibold mb-3">Failed Students</h2>
+          <p class="text-2xl font-bold lowmark">0</p>
+        </div>
+      </div>
+
+      <!-- Section: Register Students -->
+      <section class="mt-10 register hidden">
+        <div class="flex justify-between items-center mb-4">
+          <h2 class="text-2xl font-semibold">Register new students and manage their grades</h2>
+          <button id="addss" class="btns bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Add New</button>
+        </div>
+
+        <!-- Modal (hidden by default) -->
+        <div class="modal fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+          <div class="modal-content bg-white rounded-lg p-6 w-full max-w-md relative">
+            <span id="close-modal" class="absolute top-0 right-0 bg-gray-500 rounded-full text-white text-3xl cursor-pointer w-10 h-10 flex items-center text-center justify-center">&times;</span>
+            <form class="newstudnts space-y-4 p-2 mt-4">
+              <input type="text" id="name" placeholder="Full Name" required class="w-full p-2 border rounded" />
+              <input type="text" id="id" placeholder="Student ID" required class="w-full p-2 border rounded" />
+              <input type="text" id="class" placeholder="Class (e.g., 10A)" required class="w-full p-2 border rounded" />
+              <input type="number" id="math" placeholder="Math Grade" required class="w-full p-2 border rounded" />
+              <input type="number" id="English" placeholder="English Grade" required class="w-full p-2 border rounded" />
+              <input type="number" id="science" placeholder="Science Grade" required class="w-full p-2 border rounded" />
+              <button type="submit" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 w-full">Submit</button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Student Table -->
+        <div class="overflow-x-auto mt-6">
+          <table class="min-w-full bg-white shadow-lg rounded ">
+       <thead class="bg-blue-600 text-white sticky top-0 z-10">
+
+              <tr class="bg-gray-200 text-gray-700">
+                <th class="px-4 py-2">#</th>
+                <th class="px-4 py-2">Name</th>
+                <th class="px-4 py-2">ID</th>
+                <th class="px-4 py-2">Class</th>
+                <th class="px-4 py-2">Math</th>
+                <th class="px-4 py-2">English</th>
+                <th class="px-4 py-2">Science</th>
+                <th class="px-4 py-2">Average</th>
+                <th class="px-4 py-2">Grade</th>
+                <th class="px-4 py-2">Result</th>
+                <th class="px-4 py-2" colspan="2">Actions</th>
+              </tr>
+            </thead>
+            <tbody class="studentBody text-center ">
+              <!-- Dynamic rows will be inserted here -->
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Toast Notifications -->
+        <div class="ToastBox mt-4"></div>
+      </section>
+
+      <!-- Charts Section -->
+      <div class="flex flex-col sm:flex-row gap-5 mt-10 justify-center hero">
+        <!-- PIE Chart -->
+        <div class="bg-white p-5 rounded shadow w-full sm:w-1/2 ">
+          <h2 class="text-lg font-semibold mb-3">Student vs Subjects</h2>
+          <div class="w-full h-48">
+            <canvas id="studentPieChart" class="w-full h-full"></canvas>
+          </div>
+        </div>
+
+        <!-- BAR Chart -->
+        <div class="bg-white p-5 rounded shadow w-full sm:w-1/2 ">
+          <h2 class="text-lg font-semibold mb-3">Passed vs Failed</h2>
+          <div class="w-full h-48">
+            <canvas id="studentBarChart" class="w-full h-full"></canvas>
+          </div>
+        </div>
+      </div>
+
+
+       <!-- view Grade -->
+
+
+<div class="view hidden  p-4 ">
+  <h2 class="text-2xl font-semibold mb-4">View Grades</h2>
+  <p class="mb-4">Here you can view the grades of your students.</p>
+
+  <div class="overflow-x-auto">
+    <input type="text" id="search-student" placeholder="Search student name..." class="mb-4 p-2 border rounded w-full max-w-md">
+
+    <table class="min-w-full table-auto border border-gray-300 shadow-md rounded">
+      <thead class="bg-gray-200 text-gray-700">
+        <tr>
+          <th class="px-4 py-2 border">#</th>
+          <th class="px-4 py-2 border">Name</th>
+          <th class="px-4 py-2 border">Class</th>
+          <th class="px-4 py-2 border">Math</th>
+          <th class="px-4 py-2 border">English</th>
+          <th class="px-4 py-2 border">Science</th>
+          <th class="px-4 py-2 border">Average</th>
+          <th class="px-4 py-2 border">Grade</th>
+        </tr>
+      </thead>
+      <tbody class="view-body bg-white">
+        <!-- Dynamic rows will be inserted here -->
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- add new User -->
+
+      <!-- Section: Register Students -->
+      <section class="mt-10  UserRegister hidden" >
+        <div class="flex justify-between items-center mb-4">
+          <h2 class="text-2xl font-semibold">Register new students and manage their grades</h2>
+          <button id="addss" class="userbtn bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Add New</button>
+        </div>
+
+        <!-- Modal (hidden by default) -->
+       <!-- Modal -->
+<div class="user fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+  <div class="modal-content bg-white rounded-lg p-6 w-full max-w-md relative">
+    <span id="close-modal" class="absolute top-0 right-0 bg-gray-500 rounded-full text-white text-3xl cursor-pointer w-10 h-10 flex items-center justify-center">&times;</span>
+    <form class="newStudentAdmin space-y-4 p-2 mt-4">
+      <input type="text" id="UserNames" placeholder="Full Name" required class="w-full p-2 border rounded" />
+      <input type="text" id="rolename" placeholder="role" required class="w-full p-2 border rounded" />
+      <button type="submit" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 w-full">Submit</button>
+    </form>
+  </div>
+</div>
+
+
+        <!-- Student Table -->
+        <div class="overflow-x-auto mt-6">
+          <table class="min-w-full bg-white shadow-lg rounded ">
+       <thead class="bg-blue-600 text-white sticky top-0 z-10">
+
+              <tr class="bg-gray-200 text-gray-700">
+                <th class="px-4 py-2">#</th>
+                <th class="px-4 py-2">UserName</th>
+                <th class="px-4 py-2">role</th>
+             
+                <th class="px-4 py-2" colspan="2">Actions</th>
+              </tr>
+            </thead>
+            <tbody class="AdminLists text-center ">
+              <!-- Dynamic rows will be inserted here -->
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Toast Notifications -->
+       
+      </section>
+
+
+
+    </main>
+  </div>
+
+
+
+ 
+  <!-- Settings -->
+    
+  <!-- JS -->
+  <script src="main.js"></script>
+
+   
+
+</body>
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Student</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body class="bg-gray-100">
+  <!-- Student Dashboard -->
+  <div class="flex flex-col md:flex-row min-h-screen">
+    <!-- Sidebar -->
+    <aside class="bg-gray-800 text-white w-full md:w-1/5 p-5">
+      <h2 class="text-2xl font-bold mb-10">Student Dashboard</h2>
+      <ul class="space-y-4">
+        <li><a href="#" class="flex items-center gap-2 hover:text-gray-400"><i class="fa-solid fa-house"></i> Home</a></li>
+        <li><a href="#" class="flex items-center gap-2 hover:text-gray-400"><i class="fa-solid fa-user"></i> Profile</a></li>
+        <li><a href="#" class="flex items-center gap-2 hover:text-gray-400"><i class="fa-solid fa-graduation-cap"></i> Grades</a></li>
+        <li><a href="#" class="flex items-center gap-2 hover:text-gray-400 logout"><i class="fa-solid fa-cog"></i> Settings</a></li>
+        <li><a href="#" class="flex items-center gap-2 hover:text-gray-400"><i class="fa-solid fa-right-from-bracket"></i> Logout</a></li>
+      </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="w-full md:w-4/5 p-6">
+      <h1 class="text-3xl font-bold mb-5">Welcome, Student!</h1>
+      <p class="mb-5">Here you can view your profile and grades.</p>
+
+      <!-- Stats Cards -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-10">
+        <div class="bg-white p-5 rounded shadow">
+          <h2 class="text-xl font-semibold mb-3">Total Subjects</h2>
+          <p class="text-2xl font-bold" id="totalSubjects">3</p>
+        </div>
+        <div class="bg-white p-5 rounded shadow">
+          <h2 class="text-xl font-semibold mb-3">Average Grade</h2>
+          <p class="text-2xl font-bold" id="averageGrade">--%</p>
+        </div>
+      </div>
+
+      <!-- Section: Profile -->
+      <section>
+        <h2 class="text-2xl font-semibold mb-4">Profile Information</h2>
+        <div class="bg-white p-5 rounded shadow space-y-2">
+          <p><strong>Name:</strong> <span id="studentName">Loading...</span></p>
+          <p><strong>Student ID:</strong> <span id="studentId">Loading...</span></p>
+          <p><strong>Email:</strong> <span id="studentEmail">Loading...</span></p>
+        </div>
+      </section>
+
+      <!-- Section: Grades -->
+      <section class="mt-10">
+        <h2 class="text-2xl font-semibold mb-4">Grade Details</h2>
+        <div class="bg-white p-5 rounded shadow overflow-x-auto">
+          <table class="min-w-full table-auto">
+            <thead class="bg-gray-200">
+              <tr>
+                <th class="px-4 py-2 text-left">Subject</th>
+                <th class="px-4 py-2 text-left">Grade</th>
+              </tr>
+            </thead>
+            <tbody id="gradesTable" class="divide-y divide-gray-300">
+              <!-- Filled by JS -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- JavaScript to load profile -->
+  <script>
+    // Example data (would normally be set by login or teacher panel)
+    const sampleStudent = {
+      name: "John Doe",
+      id: "123456",
+      email: "john@example.com",
+      grades: {
+        Math: 85,
+        English: 78,
+        Science: 92
+      }
+    };
+
+    // Save sample if not already saved
+    if (!localStorage.getItem("studentProfile")) {
+      localStorage.setItem("studentProfile", JSON.stringify(sampleStudent));
+    }
+
+    const student = JSON.parse(localStorage.getItem("studentProfile"));
+
+    // Update profile info
+    document.getElementById("studentName").textContent = student.name;
+    document.getElementById("studentId").textContent = student.id;
+    document.getElementById("studentEmail").textContent = student.email;
+
+    // Update grades table
+    const gradesTable = document.getElementById("gradesTable");
+    let total = 0;
+    let count = 0;
+
+    for (let subject in student.grades) {
+      const grade = student.grades[subject];
+      const row = document.createElement("tr");
+      row.innerHTML = `
+        <td class="px-4 py-2">${subject}</td>
+        <td class="px-4 py-2">${grade}</td>
+      `;
+      gradesTable.appendChild(row);
+      total += grade;
+      count++;
+    }
+
+    document.getElementById("totalSubjects").textContent = count;
+    const average = (total / count).toFixed(2);
+    document.getElementById("averageGrade").textContent = `${average}%`;
+
+    document.querySelector(".logout").addEventListener("click", () => {
+     
+      alert("You have logged out successfully.");
+      window.location.href = "index.html"; // Redirect to home page
+    });
+  </script>
+</body>
+</html>

@@ -7,8 +7,8 @@ const inputField = document.querySelector('.inputValue');
 let currentRole = "";
 // Click on the "clickgrde" to open modal
 document.querySelector('.clickgrde').addEventListener('click', () => {
-  modal.style.display = 'block';
-  userName.style.display = 'none';
+  console.log('hello')
+
 });
 
 // Close modal
@@ -23,7 +23,7 @@ function closeModal() {
     userName.style.display = 'none'; 
   studentbtn.style.display = 'inline-block';
   teacherbtn.style.display = 'inline-block';
-  inputField.value = ''; // clear input
+  inputField.value = ''; 
   currentRole = '';
 }
 

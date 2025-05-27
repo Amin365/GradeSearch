@@ -38,6 +38,8 @@ function closeModal() {
 window.addEventListener('DOMContentLoaded', reloadTable);
 
 // Submit form
+
+
 newstudnt.addEventListener('submit', (event) => {
   event.preventDefault();
 
