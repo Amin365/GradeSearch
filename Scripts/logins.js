@@ -1,33 +1,33 @@
 const teacherbtn = document.querySelector('.teacherbtn');
 const username = document.querySelector('.username');
-const closeModal = document.querySelector('.close-modal');
-const modal = document.querySelector('.modal');
+const closeModal = document.querySelector('.closeModal');
+const userAdmin = document.querySelector('.userAdmin');
 const Btns = document.querySelector('#Btns');
 
 Btns.addEventListener('click', () => {
-  modal.classList.remove('hidden');
+  userAdmin.classList.remove('hidden');
  
 });
 
 
 closeModal.addEventListener('click', () => {
-  modal.classList.add('hidden');
+  userAdmin.classList.add('hidden');
 });
 
 window.addEventListener('click', (e) => {
-  if (e.target === modal) modal.classList.add('hidden');
+  if (e.target === userAdmin) userAdmin.classList.add('hidden');
 });
 
 window.addEventListener('load', () => {
   if (studentbtn) studentbtn.classList.add('inline-block');
   if (teacherbtn) teacherbtn.classList.add('inline-block');
   if (username) username.classList.add('hidden');
-  if (modal) modal.classList.add('hidden');
+  if (userAdmin) userAdmin.classList.add('hidden');
 });
 
 const loginForm = document.querySelector('#loginForm');
 const inputValue = document.querySelector('.inputValue');
-const users = JSON.parse(localStorage.getItem('users')) || [];
+const Getusers = JSON.parse(localStorage.getItem('users')) || [];
 
 loginForm.addEventListener('submit', (event) => {
   event.preventDefault();
@@ -43,14 +43,14 @@ loginForm.addEventListener('submit', (event) => {
   }
   
   const inputValues = inputValue.value.trim().toLowerCase();
-  const user = users.find(u => u.name.toLowerCase() === inputValues);
-  if (!user) {
+  const userNames = Getusers.find(u => u.name.toLowerCase() === inputValues);
+  if (!userNames) {
     alert('User not found!');
     return;
   }
-  if (user.role === 'student') {
+  if (userNames.role === 'student') {
     window.location.href = 'student.html';  // Assuming students go to student.html
-  } else if (user.role === 'teacher') {
+  } else if (userNames.role === 'teacher') {
     window.location.href = 'Teacher.html';
   } else if(inputValues===amin){
     window.location.href = 'Teacher.html';
@@ -58,4 +58,10 @@ loginForm.addEventListener('submit', (event) => {
     alert('Invalid role!');
   }
 });
+
+
+
+
+
+
 

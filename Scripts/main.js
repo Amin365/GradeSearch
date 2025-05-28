@@ -1,3 +1,4 @@
+
 // DOM Content Loaded
 document.addEventListener("DOMContentLoaded", function () {
   new Swiper(".mySwiper", {
@@ -466,20 +467,22 @@ window.addEventListener('click', (e) => {
   }
 });
 
+
+
 window.addEventListener('DOMContentLoaded', () => {
   const newStudentAdmin = document.querySelector('.newStudentAdmin');
   const studentAdmins = document.querySelector('.AdminLists');
-  const InputName = document.querySelector('#UserNames');
+  const InputName = document.querySelector('#userNameAdmin');
   const rolename= document.querySelector('#rolename')
 
   if (!newStudentAdmin || !studentAdmins || !InputName) {
-    console.warn('Required elements not found in the DOM.');
+    alert('Required elements not found in the DOM.');
     return;
   }
 
   newStudentAdmin.addEventListener('submit', (event) => {
     event.preventDefault();
-
+console.log('hello')
     const inputValue = InputName.value.trim();
     const Rolevalue = rolename.value.trim();
     if (!inputValue) return alert('Please enter the name');
@@ -496,6 +499,7 @@ window.addEventListener('DOMContentLoaded', () => {
     saveLocal(newStudent);
     user.classList.add('hidden')
     InputName.value = "";
+    Rolevalue.value=""
   });
 
   const displayStudentRow = (student) => {
@@ -535,3 +539,12 @@ window.addEventListener('DOMContentLoaded', () => {
   const savedStudents = JSON.parse(localStorage.getItem("users")) || [];
   savedStudents.forEach(displayStudentRow);
 });
+
+
+
+
+
+
+
+
+
