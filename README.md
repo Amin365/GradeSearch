@@ -75,6 +75,7 @@ This solution uses modern frontend technologies with client-side data persistenc
    ```
 
 2. Open `index.html` in a modern web browser.
+3. Click to check your Grade by Entering Amin as default as Admin
 
 *No backend setup is required as the application uses LocalStorage.*
 
