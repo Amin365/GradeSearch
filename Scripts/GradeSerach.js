@@ -155,3 +155,8 @@ function downloadGrades(student) {
   // Save PDF
   doc.save(`${student.name}_Grade_Report.pdf`);
 }
+
+
+const Logout =document.querySelector('#Logout').addEventListener('click',()=>{
+  window.location.href='index.html'
+})
